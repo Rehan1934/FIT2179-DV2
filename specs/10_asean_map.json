@@ -1,0 +1,123 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Geographic choropleth map of latest ASEAN depression prevalence.",
+  "width": "container",
+  "height": 310,
+  "projection": {
+    "type": "equalEarth"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2.12.1/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e7edf4",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.4
+      }
+    },
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2.12.1/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "id",
+          "from": {
+            "data": {
+              "url": "data/processed/asean_latest_for_map.csv"
+            },
+            "key": "m49",
+            "fields": [
+              "country",
+              "year",
+              "depression_prevalence",
+              "anxiety_prevalence",
+              "is_malaysia"
+            ]
+          }
+        },
+        {
+          "filter": "isValid(datum.depression_prevalence)"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "depression_prevalence",
+          "type": "quantitative",
+          "title": "Depression (%)",
+          "scale": {
+            "scheme": "purples"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "country",
+            "type": "nominal"
+          },
+          {
+            "field": "year",
+            "type": "quantitative"
+          },
+          {
+            "field": "depression_prevalence",
+            "type": "quantitative",
+            "title": "Depression (%)",
+            "format": ".2f"
+          },
+          {
+            "field": "anxiety_prevalence",
+            "type": "quantitative",
+            "title": "Anxiety (%)",
+            "format": ".2f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "font": "Inter",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "gridColor": "#e8eef5",
+      "domainColor": "#d6e0ea",
+      "tickColor": "#d6e0ea"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "orient": "bottom"
+    },
+    "title": {
+      "font": "Inter",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#132238",
+      "anchor": "start"
+    }
+  }
+}

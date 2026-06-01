@@ -1,0 +1,140 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Dot plot of symptoms by CGPA range.",
+  "data": {
+    "url": "data/processed/cgpa_symptom_rates.csv"
+  },
+  "width": "container",
+  "height": 260,
+  "encoding": {
+    "y": {
+      "field": "cgpa",
+      "type": "ordinal",
+      "sort": [
+        "0 - 1.99",
+        "2.00 - 2.49",
+        "2.50 - 2.99",
+        "3.00 - 3.49",
+        "3.50 - 4.00"
+      ],
+      "title": "CGPA range"
+    },
+    "x": {
+      "field": "any_symptom_percentage",
+      "type": "quantitative",
+      "title": "Students with at least one symptom (%)",
+      "scale": {
+        "domain": [
+          0,
+          100
+        ]
+      }
+    },
+    "size": {
+      "field": "count",
+      "type": "quantitative",
+      "title": "Students in group",
+      "scale": {
+        "range": [
+          80,
+          500
+        ]
+      }
+    },
+    "color": {
+      "value": "#7c6bb0"
+    },
+    "tooltip": [
+      {
+        "field": "cgpa",
+        "type": "ordinal",
+        "title": "CGPA"
+      },
+      {
+        "field": "any_symptom_percentage",
+        "type": "quantitative",
+        "title": "Any symptom (%)",
+        "format": ".1f"
+      },
+      {
+        "field": "avg_symptom_count",
+        "type": "quantitative",
+        "title": "Average symptom count"
+      },
+      {
+        "field": "count",
+        "type": "quantitative",
+        "title": "Students"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#d9e4ef"
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "x2": {
+          "field": "any_symptom_percentage"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "opacity": 0.9
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#132238"
+      },
+      "encoding": {
+        "text": {
+          "field": "any_symptom_percentage",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "font": "Inter",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "gridColor": "#e8eef5",
+      "domainColor": "#d6e0ea",
+      "tickColor": "#d6e0ea"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "orient": "bottom"
+    },
+    "title": {
+      "font": "Inter",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#132238",
+      "anchor": "start"
+    }
+  }
+}

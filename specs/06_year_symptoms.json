@@ -1,0 +1,120 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heatmap of symptoms by year of study.",
+  "data": {
+    "url": "data/processed/year_symptom_rates.csv"
+  },
+  "width": "container",
+  "height": 240,
+  "encoding": {
+    "x": {
+      "field": "symptom",
+      "type": "nominal",
+      "title": null
+    },
+    "y": {
+      "field": "year_of_study",
+      "type": "ordinal",
+      "sort": [
+        "Year 1",
+        "Year 2",
+        "Year 3",
+        "Year 4"
+      ],
+      "title": null
+    },
+    "color": {
+      "field": "percentage",
+      "type": "quantitative",
+      "title": "%",
+      "scale": {
+        "scheme": "purples"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "year_of_study",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "symptom",
+        "type": "nominal"
+      },
+      {
+        "field": "percentage",
+        "type": "quantitative",
+        "title": "Percentage",
+        "format": ".1f"
+      },
+      {
+        "field": "count",
+        "type": "quantitative"
+      },
+      {
+        "field": "group_total",
+        "type": "quantitative",
+        "title": "Group total"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "cornerRadius": 6
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": 700
+      },
+      "encoding": {
+        "text": {
+          "field": "percentage",
+          "type": "quantitative",
+          "format": ".1f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.percentage > 45",
+            "value": "white"
+          },
+          "value": "#132238"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "font": "Inter",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "gridColor": "#e8eef5",
+      "domainColor": "#d6e0ea",
+      "tickColor": "#d6e0ea"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "orient": "bottom"
+    },
+    "title": {
+      "font": "Inter",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#132238",
+      "anchor": "start"
+    }
+  }
+}

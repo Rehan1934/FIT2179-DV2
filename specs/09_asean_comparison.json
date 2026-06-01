@@ -1,0 +1,116 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "ASEAN depression prevalence comparison with Malaysia highlighted.",
+  "data": {
+    "url": "data/processed/asean_mental_health_trend.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.country === 'Malaysia' ? 'Malaysia' : 'Other ASEAN countries'",
+      "as": "country_group"
+    }
+  ],
+  "width": "container",
+  "height": 310,
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "temporal",
+      "title": "Year",
+      "axis": {
+        "format": "%Y"
+      }
+    },
+    "y": {
+      "field": "depression_prevalence",
+      "type": "quantitative",
+      "title": "Estimated depression prevalence (%)",
+      "scale": {
+        "zero": false
+      }
+    },
+    "detail": {
+      "field": "country",
+      "type": "nominal"
+    },
+    "color": {
+      "field": "country_group",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Malaysia",
+          "Other ASEAN countries"
+        ],
+        "range": [
+          "#e08e79",
+          "#b7c4d0"
+        ]
+      },
+      "title": null
+    },
+    "opacity": {
+      "condition": {
+        "test": "datum.country === 'Malaysia'",
+        "value": 1
+      },
+      "value": 0.45
+    },
+    "tooltip": [
+      {
+        "field": "country",
+        "type": "nominal"
+      },
+      {
+        "field": "year",
+        "type": "temporal",
+        "format": "%Y"
+      },
+      {
+        "field": "depression_prevalence",
+        "type": "quantitative",
+        "title": "Depression (%)",
+        "format": ".2f"
+      },
+      {
+        "field": "anxiety_prevalence",
+        "type": "quantitative",
+        "title": "Anxiety (%)",
+        "format": ".2f"
+      }
+    ]
+  },
+  "mark": {
+    "type": "line",
+    "strokeWidth": 2.4
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Inter",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "gridColor": "#e8eef5",
+      "domainColor": "#d6e0ea",
+      "tickColor": "#d6e0ea"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "orient": "bottom"
+    },
+    "title": {
+      "font": "Inter",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#132238",
+      "anchor": "start"
+    }
+  }
+}

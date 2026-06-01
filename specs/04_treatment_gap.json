@@ -1,0 +1,139 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Lollipop chart showing symptom and treatment gap.",
+  "data": {
+    "url": "data/processed/treatment_gap.csv"
+  },
+  "width": "container",
+  "height": 260,
+  "encoding": {
+    "y": {
+      "field": "indicator",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null,
+      "axis": {
+        "labelLimit": 280
+      }
+    },
+    "x": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Share of all student respondents (%)",
+      "scale": {
+        "domain": [
+          0,
+          80
+        ]
+      }
+    },
+    "color": {
+      "field": "type",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "warning sign",
+          "support",
+          "gap"
+        ],
+        "range": [
+          "#7c6bb0",
+          "#65a891",
+          "#e08e79"
+        ]
+      },
+      "title": "Category"
+    },
+    "tooltip": [
+      {
+        "field": "indicator",
+        "type": "nominal"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Percentage",
+        "format": ".1f"
+      },
+      {
+        "field": "count",
+        "type": "quantitative"
+      },
+      {
+        "field": "total",
+        "type": "quantitative"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 4,
+        "opacity": 0.35
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "x2": {
+          "field": "value"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 220,
+        "opacity": 0.95
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#132238"
+      },
+      "encoding": {
+        "text": {
+          "field": "value",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "font": "Inter",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "gridColor": "#e8eef5",
+      "domainColor": "#d6e0ea",
+      "tickColor": "#d6e0ea"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "orient": "bottom"
+    },
+    "title": {
+      "font": "Inter",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#132238",
+      "anchor": "start"
+    }
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Custom pressure profile combining indicators from multiple sources.",
+  "data": {
+    "url": "data/processed/pressure_profile.csv"
+  },
+  "width": "container",
+  "height": 380,
+  "encoding": {
+    "y": {
+      "field": "indicator",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null,
+      "axis": {
+        "labelLimit": 260
+      }
+    },
+    "x": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Percentage / indicator value",
+      "scale": {
+        "domain": [
+          0,
+          100
+        ]
+      }
+    },
+    "color": {
+      "field": "direction",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "pressure",
+          "support"
+        ],
+        "range": [
+          "#e08e79",
+          "#65a891"
+        ]
+      },
+      "title": "Meaning"
+    },
+    "row": {
+      "field": "domain",
+      "type": "nominal",
+      "title": null,
+      "header": {
+        "labelFont": "Inter",
+        "labelFontSize": 13,
+        "labelFontWeight": 800,
+        "labelColor": "#132238"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "domain",
+        "type": "nominal"
+      },
+      {
+        "field": "indicator",
+        "type": "nominal"
+      },
+      {
+        "field": "direction",
+        "type": "nominal"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "format": ".1f"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 5,
+        "opacity": 0.28
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "x2": {
+          "field": "value"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 180
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#132238"
+      },
+      "encoding": {
+        "text": {
+          "field": "value",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "font": "Inter",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "gridColor": "#e8eef5",
+      "domainColor": "#d6e0ea",
+      "tickColor": "#d6e0ea"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "orient": "bottom"
+    },
+    "title": {
+      "font": "Inter",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#132238",
+      "anchor": "start"
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Horizontal bar chart of student symptom rates.",
+  "data": {
+    "url": "data/processed/symptom_rates.csv"
+  },
+  "width": "container",
+  "height": 230,
+  "encoding": {
+    "y": {
+      "field": "indicator",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null
+    },
+    "x": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Students reporting symptom (%)",
+      "scale": {
+        "domain": [
+          0,
+          50
+        ]
+      }
+    },
+    "color": {
+      "field": "indicator",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "domain": [
+          "Depression",
+          "Anxiety",
+          "Panic attacks"
+        ],
+        "range": [
+          "#7c6bb0",
+          "#4f8fc0",
+          "#e08e79"
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "indicator",
+        "type": "nominal"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Percentage",
+        "format": ".1f"
+      },
+      {
+        "field": "count",
+        "type": "quantitative"
+      },
+      {
+        "field": "total",
+        "type": "quantitative"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 8
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 6,
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#132238"
+      },
+      "encoding": {
+        "text": {
+          "field": "value",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "font": "Inter",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "gridColor": "#e8eef5",
+      "domainColor": "#d6e0ea",
+      "tickColor": "#d6e0ea"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "orient": "bottom"
+    },
+    "title": {
+      "font": "Inter",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#132238",
+      "anchor": "start"
+    }
+  }
+}

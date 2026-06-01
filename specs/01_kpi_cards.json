@@ -1,0 +1,132 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "KPI card style view of depression, anxiety, panic attacks and treatment seeking.",
+  "data": {
+    "url": "data/processed/student_kpis.csv"
+  },
+  "transform": [
+    {
+      "calculate": "format(datum.value, '.1f') + '%'",
+      "as": "value_label"
+    },
+    {
+      "calculate": "datum.count + ' of ' + datum.total + ' students'",
+      "as": "count_label"
+    }
+  ],
+  "facet": {
+    "field": "indicator",
+    "type": "nominal",
+    "columns": 4,
+    "header": {
+      "labelFont": "Inter",
+      "labelFontSize": 13,
+      "labelFontWeight": 700,
+      "labelColor": "#132238",
+      "labelLimit": 150,
+      "title": null
+    }
+  },
+  "spec": {
+    "width": 165,
+    "height": 100,
+    "layer": [
+      {
+        "mark": {
+          "type": "text",
+          "font": "Inter",
+          "fontSize": 38,
+          "fontWeight": 800,
+          "dy": -6
+        },
+        "encoding": {
+          "x": {
+            "value": 82
+          },
+          "y": {
+            "value": 42
+          },
+          "text": {
+            "field": "value_label"
+          },
+          "color": {
+            "condition": {
+              "test": "datum.group === 'Support seeking'",
+              "value": "#65a891"
+            },
+            "value": "#7c6bb0"
+          },
+          "tooltip": [
+            {
+              "field": "indicator",
+              "type": "nominal"
+            },
+            {
+              "field": "value",
+              "type": "quantitative",
+              "title": "Percentage",
+              "format": ".1f"
+            },
+            {
+              "field": "count",
+              "type": "quantitative"
+            },
+            {
+              "field": "total",
+              "type": "quantitative"
+            }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "font": "Inter",
+          "fontSize": 12,
+          "color": "#52616b"
+        },
+        "encoding": {
+          "x": {
+            "value": 82
+          },
+          "y": {
+            "value": 78
+          },
+          "text": {
+            "field": "count_label"
+          }
+        }
+      }
+    ]
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Inter",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "gridColor": "#e8eef5",
+      "domainColor": "#d6e0ea",
+      "tickColor": "#d6e0ea"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "orient": "bottom"
+    },
+    "title": {
+      "font": "Inter",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#132238",
+      "anchor": "start"
+    }
+  }
+}

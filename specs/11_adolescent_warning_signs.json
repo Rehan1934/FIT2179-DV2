@@ -1,0 +1,117 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Malaysia adolescent warning signs profile.",
+  "data": {
+    "url": "data/processed/adolescent_warning_signs.csv"
+  },
+  "width": "container",
+  "height": 320,
+  "encoding": {
+    "y": {
+      "field": "indicator",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null,
+      "axis": {
+        "labelLimit": 220
+      }
+    },
+    "x": {
+      "field": "value",
+      "type": "quantitative",
+      "title": "Average reported share (%)",
+      "scale": {
+        "domain": [
+          0,
+          100
+        ]
+      }
+    },
+    "color": {
+      "field": "type",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Warning sign",
+          "Protective support"
+        ],
+        "range": [
+          "#e08e79",
+          "#65a891"
+        ]
+      },
+      "title": "Indicator type"
+    },
+    "tooltip": [
+      {
+        "field": "indicator",
+        "type": "nominal"
+      },
+      {
+        "field": "type",
+        "type": "nominal"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Share (%)",
+        "format": ".1f"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 8
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 6,
+        "fontSize": 12,
+        "fontWeight": 700,
+        "color": "#132238"
+      },
+      "encoding": {
+        "text": {
+          "field": "value",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "font": "Inter",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "gridColor": "#e8eef5",
+      "domainColor": "#d6e0ea",
+      "tickColor": "#d6e0ea"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "orient": "bottom"
+    },
+    "title": {
+      "font": "Inter",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#132238",
+      "anchor": "start"
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Attempted suicide indicator by age group and sex.",
+  "data": {
+    "url": "data/processed/attempted_suicide_age_sex.csv"
+  },
+  "width": "container",
+  "height": 290,
+  "encoding": {
+    "x": {
+      "field": "age_group",
+      "type": "nominal",
+      "title": "Age group"
+    },
+    "y": {
+      "field": "attempted_suicide",
+      "type": "quantitative",
+      "title": "Reported attempted suicide indicator (%)"
+    },
+    "color": {
+      "field": "sex",
+      "type": "nominal",
+      "scale": {
+        "range": [
+          "#4f8fc0",
+          "#e08e79",
+          "#7c6bb0"
+        ]
+      },
+      "title": "Sex"
+    },
+    "xOffset": {
+      "field": "sex"
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "type": "quantitative"
+      },
+      {
+        "field": "age_group",
+        "type": "nominal"
+      },
+      {
+        "field": "sex",
+        "type": "nominal"
+      },
+      {
+        "field": "attempted_suicide",
+        "type": "quantitative",
+        "title": "Indicator (%)",
+        "format": ".1f"
+      }
+    ]
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 6
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Inter",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "gridColor": "#e8eef5",
+      "domainColor": "#d6e0ea",
+      "tickColor": "#d6e0ea"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "orient": "bottom"
+    },
+    "title": {
+      "font": "Inter",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#132238",
+      "anchor": "start"
+    }
+  }
+}

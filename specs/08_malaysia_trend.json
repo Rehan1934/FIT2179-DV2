@@ -1,0 +1,104 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Malaysia depression and anxiety prevalence trend.",
+  "data": {
+    "url": "data/processed/malaysia_depression_anxiety_trend.csv"
+  },
+  "width": "container",
+  "height": 310,
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "temporal",
+      "title": "Year",
+      "axis": {
+        "format": "%Y"
+      }
+    },
+    "y": {
+      "field": "prevalence",
+      "type": "quantitative",
+      "title": "Estimated prevalence (%)",
+      "scale": {
+        "zero": false
+      }
+    },
+    "color": {
+      "field": "disorder",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Depression",
+          "Anxiety"
+        ],
+        "range": [
+          "#7c6bb0",
+          "#4f8fc0"
+        ]
+      },
+      "title": "Condition"
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "type": "temporal",
+        "format": "%Y"
+      },
+      {
+        "field": "disorder",
+        "type": "nominal"
+      },
+      {
+        "field": "prevalence",
+        "type": "quantitative",
+        "title": "Prevalence (%)",
+        "format": ".2f"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 45
+      }
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "font": "Inter",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "gridColor": "#e8eef5",
+      "domainColor": "#d6e0ea",
+      "tickColor": "#d6e0ea"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#52616b",
+      "titleColor": "#132238",
+      "orient": "bottom"
+    },
+    "title": {
+      "font": "Inter",
+      "fontSize": 15,
+      "fontWeight": 700,
+      "color": "#132238",
+      "anchor": "start"
+    }
+  }
+}
