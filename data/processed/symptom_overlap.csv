@@ -1,0 +1,5 @@
+symptom_count,count,total,percent,symptom_group,label
+0,37,101,36.6,0 symptoms,36.6%
+1,36,101,35.6,1 symptom,35.6%
+2,18,101,17.8,2 symptoms,17.8%
+3,10,101,9.9,3 symptoms,9.9%

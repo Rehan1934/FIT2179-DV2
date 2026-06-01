@@ -1,0 +1,11 @@
+country,code,year,depression,anxiety,latitude,longitude,is_malaysia
+Brunei,BRN,2017,2.562,3.621,4.5353,114.7277,False
+Cambodia,KHM,2017,3.095,3.29,12.5657,104.991,False
+Indonesia,IDN,2017,2.643,3.28,-2.5489,118.0149,False
+Laos,LAO,2017,2.912,4.224,19.8563,102.4955,False
+Malaysia,MYS,2017,3.521,4.341,4.2105,101.9758,True
+Myanmar,MMR,2017,2.301,3.314,21.9162,95.956,False
+Philippines,PHL,2017,2.765,3.27,12.8797,121.774,False
+Singapore,SGP,2017,3.438,3.73,1.3521,103.8198,False
+Thailand,THA,2017,3.085,3.33,15.87,100.9925,False
+Vietnam,VNM,2017,2.879,2.067,14.0583,108.2772,False

@@ -1,0 +1,4 @@
+order,symptom,count,total,percent,label
+1,Depression,35,101,34.7,34.7%
+2,Anxiety,34,101,33.7,33.7%
+3,Panic attacks,33,101,32.7,32.7%

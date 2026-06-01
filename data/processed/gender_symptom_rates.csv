@@ -1,0 +1,9 @@
+group,symptom,count,total,percent,order
+Female,Depression,29,75,38.7,0
+Female,Anxiety,24,75,32.0,0
+Female,Panic attacks,25,75,33.3,0
+Female,Any symptom,48,75,64.0,0
+Male,Depression,6,26,23.1,0
+Male,Anxiety,10,26,38.5,0
+Male,Panic attacks,8,26,30.8,0
+Male,Any symptom,16,26,61.5,0

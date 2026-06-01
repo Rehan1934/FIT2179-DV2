@@ -1,0 +1,17 @@
+group,symptom,count,total,percent,order
+Year 1,Depression,14,43,32.6,1.0
+Year 1,Anxiety,14,43,32.6,1.0
+Year 1,Panic attacks,14,43,32.6,1.0
+Year 1,Any symptom,25,43,58.1,1.0
+Year 2,Depression,10,26,38.5,2.0
+Year 2,Anxiety,10,26,38.5,2.0
+Year 2,Panic attacks,8,26,30.8,2.0
+Year 2,Any symptom,19,26,73.1,2.0
+Year 3,Depression,10,24,41.7,3.0
+Year 3,Anxiety,8,24,33.3,3.0
+Year 3,Panic attacks,10,24,41.7,3.0
+Year 3,Any symptom,18,24,75.0,3.0
+Year 4,Depression,1,8,12.5,4.0
+Year 4,Anxiety,2,8,25.0,4.0
+Year 4,Panic attacks,1,8,12.5,4.0
+Year 4,Any symptom,2,8,25.0,4.0

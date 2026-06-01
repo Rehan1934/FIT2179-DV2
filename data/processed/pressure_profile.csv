@@ -1,0 +1,9 @@
+order,indicator,value,source_group,label
+1,Student depression,34.7,Student survey,34.7%
+2,Student anxiety,33.7,Student survey,33.7%
+3,Student panic attacks,32.7,Student survey,32.7%
+4,Student treatment gap,57.4,Student survey,57.4%
+5,Adolescents bullied,16.7,Adolescent survey,16.7%
+6,Adolescents attempted suicide,6.6,Adolescent survey,6.6%
+7,Malaysia depression prevalence,3.5,Global estimate,3.5%
+8,Malaysia anxiety prevalence,4.3,Global estimate,4.3%

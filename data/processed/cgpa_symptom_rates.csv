@@ -1,0 +1,21 @@
+group,symptom,count,total,percent,order
+0 - 1.99,Depression,0,4,0.0,1.0
+0 - 1.99,Anxiety,0,4,0.0,1.0
+0 - 1.99,Panic attacks,1,4,25.0,1.0
+0 - 1.99,Any symptom,1,4,25.0,1.0
+2.00 - 2.49,Depression,0,2,0.0,2.0
+2.00 - 2.49,Anxiety,0,2,0.0,2.0
+2.00 - 2.49,Panic attacks,1,2,50.0,2.0
+2.00 - 2.49,Any symptom,1,2,50.0,2.0
+2.50 - 2.99,Depression,3,4,75.0,3.0
+2.50 - 2.99,Anxiety,1,4,25.0,3.0
+2.50 - 2.99,Panic attacks,3,4,75.0,3.0
+2.50 - 2.99,Any symptom,3,4,75.0,3.0
+3.00 - 3.49,Depression,19,43,44.2,4.0
+3.00 - 3.49,Anxiety,15,43,34.9,4.0
+3.00 - 3.49,Panic attacks,9,43,20.9,4.0
+3.00 - 3.49,Any symptom,28,43,65.1,4.0
+3.50 - 4.00,Depression,13,48,27.1,5.0
+3.50 - 4.00,Anxiety,18,48,37.5,5.0
+3.50 - 4.00,Panic attacks,19,48,39.6,5.0
+3.50 - 4.00,Any symptom,31,48,64.6,5.0

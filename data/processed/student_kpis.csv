@@ -1,0 +1,8 @@
+order,indicator,short_label,count,total,percent,percent_label
+1,Reported depression,Depression,35,101,34.7,34.7%
+2,Reported anxiety,Anxiety,34,101,33.7,33.7%
+3,Reported panic attacks,Panic attacks,33,101,32.7,32.7%
+4,Sought specialist treatment,Treatment,6,101,5.9,5.9%
+5,Reported at least one symptom,Any symptom,64,101,63.4,63.4%
+6,Reported two or more symptoms,2+ symptoms,28,101,27.7,27.7%
+7,Reported symptoms but no specialist treatment,Treatment gap,58,101,57.4,57.4%

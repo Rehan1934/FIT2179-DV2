@@ -1,0 +1,4 @@
+order,indicator,count,type,total,percent,label
+1,Reported at least one symptom,64,symptom,101,63.4,63.4%
+2,Sought specialist treatment,6,support,101,5.9,5.9%
+3,Symptoms but no specialist treatment,58,gap,101,57.4,57.4%
